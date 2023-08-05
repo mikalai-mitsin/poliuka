@@ -7,14 +7,6 @@
 #include "unit.h"
 #include "display.h"
 
-//#define PIN_SOIL_MOISTURE_1 GPIO_NUM_0
-//#define PIN_VALVE_1 GPIO_NUM_3
-//#define PIN_POMP GPIO_NUM_2
-
-//#define SOIL_LIMIT 60
-//#define WATER_VALUE 2260
-//#define AIR_VALUE 4095
-
 #define STACK_SIZE 4096
 
 
