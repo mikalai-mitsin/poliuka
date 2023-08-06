@@ -1,11 +1,13 @@
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
+#include <nvs_flash.h>
 #include "esp_log.h"
 #include "pump.h"
 #include "sensor.h"
 #include "valve.h"
 #include "unit.h"
 #include "display.h"
+#include "wifi.h"
 
 #define STACK_SIZE 4096
 
@@ -43,22 +45,18 @@ _Noreturn void vTaskWatering(void *pvParameters) {
     }
 }
 
-_Noreturn void vTaskInterface(void *pvParameters) {
-    while (true) {
-        int percentage = unit_percentage(&unit1);
-        char str[80];
-        sprintf(str, "per: %i", percentage);
-        display_print(&display, str);
-        vTaskDelay(500 / portTICK_PERIOD_MS);
-    }
-}
-
 void app_main() {
+    esp_err_t ret = nvs_flash_init();
+    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+        ESP_ERROR_CHECK(nvs_flash_erase());
+        ret = nvs_flash_init();
+    }
+    ESP_ERROR_CHECK(ret);
+    wifi_init_sta();
     ESP_LOGI(TAG, "init");
     pump_init(&pump);
     sensor_init(&sensor1);
     display_init(&display);
     ESP_LOGI(TAG, "run tasks");
     xTaskCreate(vTaskWatering, "watering", STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL);
-    xTaskCreate(vTaskInterface, "interface", STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL);
 }
