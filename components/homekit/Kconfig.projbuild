@@ -1,0 +1,14 @@
+menu "Apple HomeKit"
+
+    config HOMEKIT_SETUP_CODE
+        string "Setup code"
+        default "111-22-333"
+        help
+            Setup code of the format xxx-xx-xxx where each x is a number
+
+    config HOMEKIT_SETUP_ID
+        string "Setup ID"
+        default "ES32"
+        help
+            Setup ID, which will be a 4 character long alpha numeric string (with capital alphabets)
+endmenu

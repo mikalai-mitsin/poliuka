@@ -16,4 +16,8 @@ void pump_init(pump_dev_t *dev);
 
 void pump_watering(pump_dev_t *dev, int delay);
 
+void pump_on(pump_dev_t *dev);
+
+void pump_off(pump_dev_t *dev);
+
 #endif //POLIUKA_IDF_PUMP_H

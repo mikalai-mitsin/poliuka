@@ -14,7 +14,15 @@ void pump_init(pump_dev_t *dev) {
 }
 
 void pump_watering(pump_dev_t *dev, int delay) {
-    gpio_set_level(dev->pin, 1);
+    pump_on(dev);
     vTaskDelay(delay / portTICK_PERIOD_MS);
+    pump_off(dev);
+}
+
+void pump_on(pump_dev_t *dev) {
+    gpio_set_level(dev->pin, 1);
+}
+
+void pump_off(pump_dev_t *dev) {
     gpio_set_level(dev->pin, 0);
 }

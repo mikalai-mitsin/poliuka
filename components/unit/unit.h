@@ -14,9 +14,16 @@ typedef struct {
     sensor_dev_t *sensor;
     valve_dev_t *valve;
     pump_dev_t *pump;
+    bool in_use;
 } unit_dev_t;
 
-void unit_tick(unit_dev_t *dev);
+void unit_start(unit_dev_t *dev);
+
+void unit_watering(unit_dev_t *dev);
+
+void unit_open(unit_dev_t *dev);
+
+void unit_close(unit_dev_t *dev);
 
 int unit_moisture(unit_dev_t *dev);
 
