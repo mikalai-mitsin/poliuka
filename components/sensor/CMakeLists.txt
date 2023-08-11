@@ -1,5 +1,5 @@
 idf_component_register(
-        SRCS "sensor.h" "sensor.c"
-        INCLUDE_DIRS "."
+        SRCS "sensor.c"
+        INCLUDE_DIRS "include"
         REQUIRES "driver" "esp_adc"
 )

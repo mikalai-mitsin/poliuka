@@ -1,5 +1,5 @@
 idf_component_register(
-        SRCS "unit.h" "unit.c"
-        INCLUDE_DIRS "."
+        SRCS "unit.c"
+        INCLUDE_DIRS "include"
         REQUIRES "driver" "sensor" "valve" "pump"
 )

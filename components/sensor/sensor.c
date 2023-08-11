@@ -2,7 +2,7 @@
 // Created by Mikalai Mitsin on 30/07/2023.
 //
 
-#include "sensor.h"
+#include "include/sensor.h"
 #include "esp_adc/adc_oneshot.h"
 
 void sensor_init(sensor_dev_t *dev) {

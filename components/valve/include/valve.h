@@ -13,7 +13,6 @@ typedef struct {
 } valve_dev_t;
 
 
-
 void valve_init(valve_dev_t *dev);
 
 void valve_open(valve_dev_t *dev);

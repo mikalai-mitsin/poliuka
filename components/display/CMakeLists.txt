@@ -1,5 +1,5 @@
 idf_component_register(
-        SRCS "display.h" "display.c"
-        INCLUDE_DIRS "."
+        SRCS "display.c"
+        INCLUDE_DIRS "include"
         REQUIRES "driver" "ssd1306"
 )

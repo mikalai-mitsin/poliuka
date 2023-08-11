@@ -1,5 +1,5 @@
 idf_component_register(
-        SRCS "valve.h" "valve.c"
-        INCLUDE_DIRS "."
+        SRCS "valve.c"
+        INCLUDE_DIRS "include"
         REQUIRES "driver"
 )

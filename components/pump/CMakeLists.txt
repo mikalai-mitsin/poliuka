@@ -1,5 +1,5 @@
 idf_component_register(
-        SRCS "pump.h" "pump.c"
-        INCLUDE_DIRS "."
+        SRCS "pump.c"
+        INCLUDE_DIRS "include"
         REQUIRES "driver"
 )

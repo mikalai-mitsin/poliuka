@@ -17,9 +17,9 @@ static ssd1306_handle_t ssd1306_dev = NULL;
 void display_init(display_dev_t *dev) {
     i2c_config_t conf;
     conf.mode = I2C_MODE_MASTER;
-    conf.sda_io_num = (gpio_num_t)I2C_MASTER_SDA_IO;
+    conf.sda_io_num = (gpio_num_t) I2C_MASTER_SDA_IO;
     conf.sda_pullup_en = GPIO_PULLUP_ENABLE;
-    conf.scl_io_num = (gpio_num_t)I2C_MASTER_SCL_IO;
+    conf.scl_io_num = (gpio_num_t) I2C_MASTER_SCL_IO;
     conf.scl_pullup_en = GPIO_PULLUP_ENABLE;
     conf.master.clk_speed = I2C_MASTER_FREQ_HZ;
     conf.clk_flags = I2C_SCLK_SRC_FLAG_FOR_NOMAL;
@@ -32,6 +32,6 @@ void display_init(display_dev_t *dev) {
 }
 
 void display_print(display_dev_t *dev, char *data_str) {
-    ssd1306_draw_string(dev->dev, 0, 0, (const uint8_t *)data_str, 16, 1);
+    ssd1306_draw_string(dev->dev, 0, 0, (const uint8_t *) data_str, 16, 1);
     ssd1306_refresh_gram(dev->dev);
 }
