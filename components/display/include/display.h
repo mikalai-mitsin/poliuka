@@ -7,6 +7,7 @@
 
 #include "driver/gpio.h"
 #include "ssd1306.h"
+#include "unit.h"
 
 typedef struct {
     ssd1306_handle_t dev;
@@ -15,5 +16,6 @@ typedef struct {
 void display_init(display_dev_t *dev);
 
 void display_print(display_dev_t *dev, char *data_str);
+void display_start(unit_dev_t *unit);
 
 #endif //POLIUKA_IDF_DISPLAY_H
