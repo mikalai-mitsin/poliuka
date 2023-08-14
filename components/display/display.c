@@ -43,6 +43,7 @@ _Noreturn void display_update_task(void *param) {
     unit_dev_t *unit = (unit_dev_t *) param;
     while (true) {
         ESP_LOGD(TAG, "tick");
+        ssd1306_clear_screen(ssd1306_dev, 0x00);
         char percentage[16];
         sprintf(percentage, "Percentage: %d", unit_percentage(unit));
         ssd1306_draw_string(ssd1306_dev, 0, 0, (const uint8_t *) percentage, 14, 1);

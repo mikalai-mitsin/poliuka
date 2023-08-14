@@ -1,4 +1,32 @@
 dependencies:
+  esp_hap_apple_profiles:
+    component_hash: da8b994a371dc801f6d29013638a663bb80789d2837e2ebc80a3747e3cf3cbd8
+    source:
+      git: https://github.com/espressif/esp-homekit-sdk.git
+      path: components/homekit/esp_hap_apple_profiles
+      type: git
+    version: 3e6955ac2118f98b374b3f786776fe73f04daf1e
+  esp_hap_core:
+    component_hash: ad2e3881d0936eef5ac13a9634dbf4daebe0d5bac59a536d4624b8c1895c6cb5
+    source:
+      git: https://github.com/espressif/esp-homekit-sdk.git
+      path: components/homekit/esp_hap_core
+      type: git
+    version: 3e6955ac2118f98b374b3f786776fe73f04daf1e
+  esp_hap_extras:
+    component_hash: 404d7a97b9ce9986df6640238876607bfb73e5c413fc6da2b95101109ea19d5d
+    source:
+      git: https://github.com/espressif/esp-homekit-sdk.git
+      path: components/homekit/esp_hap_extras
+      type: git
+    version: 3e6955ac2118f98b374b3f786776fe73f04daf1e
+  esp_hap_platform:
+    component_hash: 8bb5ccbf61eba2f460f8dffd8be04fbd2b46c244338fbffde4695f47ee40e69f
+    source:
+      git: https://github.com/espressif/esp-homekit-sdk.git
+      path: components/homekit/esp_hap_platform
+      type: git
+    version: 3e6955ac2118f98b374b3f786776fe73f04daf1e
   espressif/libsodium:
     component_hash: 36e9832f40c909c0a9135a3e775fcbdd7a2a13d47a1c052ee5b21499eb3eddb5
     source:
@@ -17,11 +45,39 @@ dependencies:
       service_url: https://api.components.espressif.com/
       type: service
     version: 1.0.5
+  hkdf-sha:
+    component_hash: 62fccd655c271a54822847f2b9b03d66c4b53e037c76516297702bd8f6234151
+    source:
+      git: https://github.com/espressif/esp-homekit-sdk.git
+      path: components/homekit/hkdf-sha
+      type: git
+    version: 3e6955ac2118f98b374b3f786776fe73f04daf1e
   idf:
     component_hash: null
     source:
       type: idf
     version: 5.1.0
-manifest_hash: 5ab388c8db55aeff11377672ac5926f799afe2aa5d545a307d719e182cb7aa90
+  json_generator:
+    component_hash: d926b7d5a9decdcf48fb12a83713431ad594f0c36bfa44b136344cb1e43bab73
+    source:
+      git: https://github.com/espressif/esp-homekit-sdk.git
+      path: components/homekit/json_generator
+      type: git
+    version: 3e6955ac2118f98b374b3f786776fe73f04daf1e
+  json_parser:
+    component_hash: 968db8f67477efed87a3678636d51129d2e8f6542e5d48dce0da59f49fc50f59
+    source:
+      git: https://github.com/espressif/esp-homekit-sdk.git
+      path: components/homekit/json_parser
+      type: git
+    version: 3e6955ac2118f98b374b3f786776fe73f04daf1e
+  mu_srp:
+    component_hash: 6b272eaf1a99286ee7643b3e16c1d3d376bcce62589302c77e0d94c79258ae08
+    source:
+      git: https://github.com/espressif/esp-homekit-sdk.git
+      path: components/homekit/mu_srp
+      type: git
+    version: 3e6955ac2118f98b374b3f786776fe73f04daf1e
+manifest_hash: 02f43b7a96459ae13dcab53442552d2ae610ef789143ca46fee210202fda57c8
 target: esp32
 version: 1.0.0

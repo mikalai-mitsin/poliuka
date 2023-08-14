@@ -1,0 +1,28 @@
+## IDF Component Manager Manifest File
+dependencies:
+  idf:
+    version: ">=4.1.0"
+  esp_hap_core:
+    path: "components/homekit/esp_hap_core"
+    git: "https://github.com/espressif/esp-homekit-sdk.git"
+  esp_hap_platform:
+    path: "components/homekit/esp_hap_platform"
+    git: "https://github.com/espressif/esp-homekit-sdk.git"
+  esp_hap_apple_profiles:
+    path: "components/homekit/esp_hap_apple_profiles"
+    git: "https://github.com/espressif/esp-homekit-sdk.git"
+  esp_hap_extras:
+    path: "components/homekit/esp_hap_extras"
+    git: "https://github.com/espressif/esp-homekit-sdk.git"
+  mu_srp:
+    path: "components/homekit/mu_srp"
+    git: "https://github.com/espressif/esp-homekit-sdk.git"
+  json_parser:
+    path: "components/homekit/json_parser"
+    git: "https://github.com/espressif/esp-homekit-sdk.git"
+  json_generator:
+    path: "components/homekit/json_generator"
+    git: "https://github.com/espressif/esp-homekit-sdk.git"
+  hkdf-sha:
+    path: "components/homekit/hkdf-sha"
+    git: "https://github.com/espressif/esp-homekit-sdk.git"

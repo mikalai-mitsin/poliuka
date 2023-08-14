@@ -4,6 +4,9 @@
 
 #include "include/sensor.h"
 #include "esp_adc/adc_oneshot.h"
+#include "esp_log.h"
+
+static const char *TAG = "sensor";
 
 void sensor_init(sensor_dev_t *dev) {
     adc_oneshot_unit_init_cfg_t init_config = {
@@ -11,7 +14,7 @@ void sensor_init(sensor_dev_t *dev) {
     };
     ESP_ERROR_CHECK(adc_oneshot_new_unit(&init_config, &dev->unitHandle));
     adc_oneshot_chan_cfg_t config = {
-            .atten = ADC_ATTEN_DB_0,
+            .atten = ADC_ATTEN_DB_11,
             .bitwidth = ADC_BITWIDTH_DEFAULT,
     };
     ESP_ERROR_CHECK(adc_oneshot_config_channel(dev->unitHandle, ADC_CHANNEL_0, &config));
@@ -30,6 +33,7 @@ int map(int x, int in_min, int in_max, int out_min, int out_max) {
 int sensor_moisture(sensor_dev_t *dev) {
     int result = 0;
     ESP_ERROR_CHECK(adc_oneshot_read(dev->unitHandle, ADC_CHANNEL_0, &result));
+    ESP_LOGI(TAG, "result %d", result);
     return result;
 }
 

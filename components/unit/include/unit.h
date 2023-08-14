@@ -9,6 +9,16 @@
 #include "valve.h"
 #include "pump.h"
 
+typedef enum {
+    OnTaskType = 0,
+    OffTaskType = 1,
+} unit_task_type;
+
+typedef struct {
+    unit_task_type type;
+    int16_t delay;
+} unit_task_t;
+
 typedef struct {
     int limit;
     sensor_dev_t *sensor;
