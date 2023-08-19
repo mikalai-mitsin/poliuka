@@ -8,6 +8,8 @@
 #include "sensor.h"
 #include "valve.h"
 #include "pump.h"
+#include <freertos/FreeRTOS.h>
+#include <freertos/queue.h>
 
 typedef enum {
     OnTaskType = 0,
@@ -25,6 +27,7 @@ typedef struct {
     valve_dev_t *valve;
     pump_dev_t *pump;
     bool in_use;
+    QueueHandle_t queue;
 } unit_dev_t;
 
 void unit_start(unit_dev_t *dev);

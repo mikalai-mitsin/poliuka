@@ -13,13 +13,12 @@
 static const char *TAG = "unit";
 
 
-QueueHandle_t xQueue;
 
 _Noreturn void unit_task_queue(void *param) {
     unit_dev_t *unit = (unit_dev_t *) param;
     unit_task_t task;
     while (1) {
-        if (xQueueReceive(xQueue, &(task), (TickType_t) 10)) {
+        if (xQueueReceive(unit->queue, &(task), (TickType_t) 10)) {
             ESP_LOGI(TAG, "handled task type %d delay %d", task.type, task.delay);
             switch (task.type) {
                 case OnTaskType:
@@ -51,7 +50,7 @@ _Noreturn void unit_task_watering(void *param) {
 }
 
 void unit_start(unit_dev_t *dev) {
-    xQueue = xQueueCreate(2, sizeof(unit_task_t));
+    dev->queue = xQueueCreate(2, sizeof(unit_task_t));
     xTaskCreate(
             unit_task_queue,
             "queue_handler",
@@ -75,12 +74,12 @@ void unit_watering(unit_dev_t *dev) {
             .type = OnTaskType,
             .delay = 2000,
     };
-    xQueueSend(xQueue, (void *) &on, 2000 / portTICK_PERIOD_MS);
+    xQueueSend(dev->queue, (void *) &on, 2000 / portTICK_PERIOD_MS);
     unit_task_t delay = {
             .type = OffTaskType,
             .delay = 2000,
     };
-    xQueueSend(xQueue, (void *) &delay, 2000 / portTICK_PERIOD_MS);
+    xQueueSend(dev->queue, (void *) &delay, 2000 / portTICK_PERIOD_MS);
 }
 
 void unit_close(unit_dev_t *dev) {
